@@ -9,6 +9,28 @@
 </head> 
 <body> 
 
+	<div data-role="page" id="qr">
+	
+		<div data-role="header" data-theme="b">
+	        <h1>EMRLite</h1>
+		</div><!-- /header -->
+
+		<div data-role="content" style="padding: 15px">
+			<a id="scanQR" data-role="button" data-transition="fade" data-theme="d" href="">Scan</a>
+		</div><!-- /content -->
+		
+		<div data-theme="a" data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+	                <li><a href="#qr" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">Scan QR</a></li>
+	                <li><a href="#record" data-theme="" data-icon="">View Record</a></li>
+	                <li><a href="#store" data-theme="" data-icon="">Store & Print</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div><!-- /page -->
+
 	<div data-role="page" id="record">
 	
 		<div data-role="header" data-theme="b">
@@ -221,8 +243,8 @@
 		</div>
 	
 	</div>
-	<div id="patient-health-record">
-	</div>
+	<div id="patient-health-record">Text Here</div>
+	<div id="qrCodeString">Text Here</div>
 	<!-- /page -->
 	
 	<script type="text/javascript">
@@ -234,7 +256,7 @@
 		function setThingsUp() {
 			console.log('jQuery running');
 			
-			$('#scanRecord').click(readJSONData);
+			$('#scanQR').click(readJSONData);
 			
 		}
 		
@@ -256,25 +278,20 @@ myIcds + myMeds;
 		}
 		
 		function readJSONData() {
-			
-			console.log('Trying to read JSON data');
-			
 			$.getJSON('checklist.json', function(data) {
 			  var items = [];
-			  console.log(items);
+			console.log(items);
 
 			  $.each(data, function(key, val) {
 			    items.push('<li id="' + key + '">' + val + '</li>');
 			  });
 
 			  $('<ul/>', {
-			    'class': 'patient-health-records',
+			    'class': 'my-new-list',
 			    html: items.join('')
-			  }).appendTo('#patient-health-record');
+			  }).appendTo('body');
 			});
-			
 		}
-		
 	</script>
 
 </body>
