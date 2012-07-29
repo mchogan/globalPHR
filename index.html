@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html> 
 	<head> 
-	<title>EMRLite</title> 
+	<title>EMRLite</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
@@ -15,7 +15,7 @@
 	        <h1>EMRLite</h1>
 		</div><!-- /header -->
 
-		<div data-role="content" style="padding: 15px">
+		<div id="content" data-role="content" style="padding: 15px">
 			<a id="scanQR" data-role="button" data-transition="fade" data-theme="d" href="">Scan</a>
 		</div><!-- /content -->
 		
@@ -278,6 +278,7 @@ myIcds + myMeds;
 		}
 		
 		function readJSONData() {
+			$.ajaxSetup({ cache:false });
 			$.getJSON('checklist.json', function(data) {
 			  var items = [];
 			console.log(items);
@@ -289,8 +290,9 @@ myIcds + myMeds;
 			  $('<ul/>', {
 			    'class': 'my-new-list',
 			    html: items.join('')
-			  }).appendTo('body');
+			  }).appendTo('#qr #content');
 			});
+			$.ajaxSetup({ cache:true });
 		}
 	</script>
 
