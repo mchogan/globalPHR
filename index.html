@@ -4,8 +4,14 @@
 	<title>EMRLite</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
-	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<style type="text/css">
+	#store #content img {
+		width:250px;
+	}
+	#content {
+		text-align:center;
+	}
+	</style>
 </head> 
 <body> 
 
@@ -37,10 +43,10 @@
 	        <h1>EMRLite</h1>
 		</div><!-- /header -->
 
-		<div data-role="content" style="padding: 15px">
+		<div id="content" data-role="content" style="padding: 15px">
 			<h2 id="userName">John Doe</h2>
 			<h3>Birthdate: 01 Aug 1973</h3>
-			<h3>Blood Type: O</h3>
+			<h3>Blood Type: O+</h3>
 			<br />
 			<ul data-role="listview" data-divider-theme="d" data-inset="false">
 				<li data-role="list-divider" role="heading">Health Details</li>
@@ -69,10 +75,10 @@
 	        <h1>EMRLite</h1>
 		</div><!-- /header -->
 
-		<div data-role="content" style="padding: 15px">
+		<div id="content" data-role="content" style="padding: 15px">
 			<h2>John Doe</h2>
 			<h3>Birthdate: 01 Aug 1973</h3>
-			<h3>Blood Type: O</h3>
+			<h3>Blood Type: O+</h3>
 			<br />
 			<div class="ui-grid-a">
 				<div class="ui-block-a">
@@ -83,7 +89,7 @@
 				</div>
 				<div class="ui-block-b">
 					<!-- Create new QR code via API -->
-					<a data-role="button" data-transition="fade" data-theme="d" href="">Print</a>
+					<a data-role="button" id="printQR" data-transition="fade" data-theme="d" href="">Print</a>
 				</div>
 			</div>
 		</div><!-- /content -->
@@ -243,10 +249,14 @@
 		</div>
 	
 	</div>
-	<div id="patient-health-record">Text Here</div>
-	<div id="qrCodeString">Text Here</div>
+	<div id="patient-health-record">Text</div>
+	<div id="qrCodeString">Text</div>
+	<div id="qrCodeImage"></div>
 	<!-- /page -->
-	
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script src="html5-qrcode.js" type="text/javascript" charset="utf-8"></script>
+	<script src="qrcode.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		
 		//Wait
@@ -257,6 +267,8 @@
 			console.log('jQuery running');
 			
 			$('#scanQR').click(readJSONData);
+			
+			$('#printQR').click(textFromDivToImageDiv);
 			
 		}
 		
@@ -308,6 +320,14 @@ myIcds + myMeds;
 			});
 			$.ajaxSetup({ cache:true });
 		}
+		
+		
+	  function textFromDivToImageDiv() {
+		var qrCodeString = $('#qrCodeString').html();
+		console.log(qrCodeString)		
+		$('#store #content').append(showQRCode(qrCodeString));
+      }
+
 	</script>
 
 </body>
