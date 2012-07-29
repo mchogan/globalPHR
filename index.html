@@ -38,7 +38,7 @@
 		</div><!-- /header -->
 
 		<div data-role="content" style="padding: 15px">
-			<h2>John Doe</h2>
+			<h2 id="userName">John Doe</h2>
 			<h3>Birthdate: 01 Aug 1973</h3>
 			<h3>Blood Type: O</h3>
 			<br />
@@ -277,15 +277,29 @@ myIcds + myMeds;
 
 		}
 		
+		function DOESNTWORKreadJSONData() {
+			$.ajaxSetup({ cache:false });
+			$.getJSON('checklist.json', function(data) {
+			  var items = [];
+			console.log(items);
+
+			  $.each(data, function(key, val) { items.push('<li id="' + key + '">' + val + '</li>');});
+			  $.each(data, function(key, val) { $('h2'+key).html(val);});
+			  $('<ul/>', {
+			    'class': 'my-new-list',
+			    html: items.join('')
+			  }).appendTo('#qr #content');
+			});
+			$.ajaxSetup({ cache:true });
+		}
+		
 		function readJSONData() {
 			$.ajaxSetup({ cache:false });
 			$.getJSON('checklist.json', function(data) {
 			  var items = [];
 			console.log(items);
 
-			  $.each(data, function(key, val) {
-			    items.push('<li id="' + key + '">' + val + '</li>');
-			  });
+			  $.each(data, function(key, val) { items.push('<li id="' + key + '">' + val + '</li>');});
 
 			  $('<ul/>', {
 			    'class': 'my-new-list',
