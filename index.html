@@ -16,12 +16,7 @@
 		</div><!-- /header -->
 
 		<div data-role="content" style="padding: 15px">
-			<h2 id="patient" data-pid="1111111" data-bday="11111" data-btype="1"
-data-tetanus="11111" data-hepA="11111" data-hepB="11111"
-data-hepC="11111" data-tb="11111" data-polio="11111" data-vac7="11111"
-data-vac8="11111" data-allergens="11111111"
-data-icds="11111111111111111111111111111111111111111111111111111111111111"
-data-meds="111">John Doe</h2>
+			<h2>John Doe</h2>
 			<h3>Birthdate: 01 Aug 1973</h3>
 			<h3>Blood Type: O</h3>
 			<br />
@@ -37,9 +32,9 @@ data-meds="111">John Doe</h2>
 		<div data-theme="a" data-role="footer" data-position="fixed">
 			<div data-role="navbar" data-iconpos="bottom">
 				<ul>
-	                <li><a href="#qr" data-theme="" data-icon="">Scan QR</a></li>
-	                <li><a href="#record" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">View Record</a></li>
-	                <li><a href="#store" data-theme="" data-icon="">Store & Print</a></li>
+	                <li><a id="scanRecord" href="#qr" data-theme="" data-icon="">Scan QR</a></li>
+	                <li><a id="viewRecord" href="#record" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">View Record</a></li>
+	                <li><a id="storeRecord" href="#store" data-theme="" data-icon="">Store & Print</a></li>
 				</ul>
 			</div>
 		</div>
@@ -225,7 +220,10 @@ data-meds="111">John Doe</h2>
 			</div>
 		</div>
 	
-	</div><!-- /page -->
+	</div>
+	<div id="patient-health-record">
+	</div>
+	<!-- /page -->
 	
 	<script type="text/javascript">
 		
@@ -234,11 +232,13 @@ data-meds="111">John Doe</h2>
 		
 		//Setup
 		function setThingsUp() {
+			console.log('jQuery running');
 			$('fieldset#vaccines #checkbox2').click(setMyTetanus);	
+			
+			$('#scanRecord').click(readJSONData);
+			
 		}
 		
-To send the QR code for encoding into an image...
-
 		//Play
 		
 		function getMyPid() {
@@ -256,6 +256,24 @@ myIcds + myMeds;
 
 		}
 		
+		function readJSONData() {
+			
+			console.log('Trying to read JSON data');
+			
+			$.getJSON('patient.json', function(data) {
+			  var items = [];
+
+			  $.each(data, function(key, val) {
+			    items.push('<li id="' + key + '">' + val + '</li>');
+			  });
+
+			  $('<ul/>', {
+			    'class': 'patient-health-records',
+			    html: items.join('')
+			  }).appendTo('#patient-health-record');
+			});
+			
+		}
 		
 	</script>
 
