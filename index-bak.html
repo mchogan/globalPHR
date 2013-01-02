@@ -1,0 +1,340 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>EMRLite</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<style type="text/css">
+	#store #content img {
+		width:250px;
+	}
+	#content {
+		text-align:center;
+	}
+	</style>
+</head> 
+<body> 
+
+	<div data-role="page" id="qr">
+	
+		<div data-role="header" data-theme="b">
+	        <h1>EMRLite</h1>
+		</div><!-- /header -->
+
+		<div id="content" data-role="content" style="padding: 15px">
+			<a id="scanQR" data-role="button" data-transition="fade" data-theme="d" href="">Scan</a>
+		</div><!-- /content -->
+		
+		<div data-theme="a" data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+	                <li><a href="#qr" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">Scan QR</a></li>
+	                <li><a href="#record" data-theme="" data-icon="">View Record</a></li>
+	                <li><a href="#store" data-theme="" data-icon="">Store & Print</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div><!-- /page -->
+
+	<div data-role="page" id="record">
+	
+		<div data-role="header" data-theme="b">
+	        <h1>EMRLite</h1>
+		</div><!-- /header -->
+
+		<div id="content" data-role="content" style="padding: 15px">
+			<h2 id="userName">John Doe</h2>
+			<h3>Birthdate: 01 Aug 1973</h3>
+			<h3>Blood Type: O+</h3>
+			<br />
+			<ul data-role="listview" data-divider-theme="d" data-inset="false">
+				<li data-role="list-divider" role="heading">Health Details</li>
+				<li data-theme="c"><a href="#vaccines" data-transition="slide">Vaccines</a></li>
+				<li data-theme="c"><a href="#allergies" data-transition="slide">Allergies</a></li>
+				<li data-theme="c"><a href="#conditions" data-transition="slide">Conditions</a></li>
+				<li data-theme="c"><a href="#medications" data-transition="slide">Medications</a></li>
+			</ul>
+		</div><!-- /content -->
+		
+		<div data-theme="a" data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+	                <li><a id="scanRecord" href="#qr" data-theme="" data-icon="">Scan QR</a></li>
+	                <li><a id="viewRecord" href="#record" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">View Record</a></li>
+	                <li><a id="storeRecord" href="#store" data-theme="" data-icon="">Store & Print</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div><!-- /page -->
+	
+	<div data-role="page" id="store">
+	
+		<div data-role="header" data-theme="b">
+	        <h1>EMRLite</h1>
+		</div><!-- /header -->
+
+		<div id="content" data-role="content" style="padding: 15px">
+			<h2>John Doe</h2>
+			<h3>Birthdate: 01 Aug 1973</h3>
+			<h3>Blood Type: O+</h3>
+			<br />
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<!-- Store via usergrid -->
+					<form action="">
+						<input value="Store" type="submit">
+					</form>
+				</div>
+				<div class="ui-block-b">
+					<!-- Create new QR code via API -->
+					<a data-role="button" id="printQR" data-transition="fade" data-theme="d" href="">Print</a>
+				</div>
+			</div>
+		</div><!-- /content -->
+		
+		<div data-theme="a" data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+	                <li><a href="#qr" data-theme="" data-icon="">Scan QR</a></li>
+	                <li><a href="#record" data-theme="" data-icon="">View Record</a></li>
+	                <li><a href="#store" data-theme="" data-icon="" class="ui-btn-active ui-state-persist">Store & Print</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div><!-- /page -->
+	
+	<div data-role="page" id="vaccines">
+	
+		<div data-role="header" data-theme="b">
+	        <h1>Vaccines</h1>
+			<a data-role="button" data-rel="back" data-transition="fade" data-theme="d" href="">Back</a>
+		</div><!-- /header -->
+
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain">
+				<fieldset id="vaccines" data-role="controlgroup" data-type="vertical">
+					<input name="checkbox1" id="in" type="checkbox"><label for="checkbox1">Influenza (Flu)</label>
+					<input name="checkbox2" id="td" type="checkbox"><label for="checkbox2">Tetanus, diphtheria, pertussis (Td/Tdap)</label>
+					<input name="checkbox3" id="cp" type="checkbox"><label for="checkbox3">Varicella (Chickenpox)</label>
+					<input name="checkbox4" id="hp" type="checkbox"><label for="checkbox4">HPV Vaccine</label>
+					<input name="checkbox5" id="sh" type="checkbox"><label for="checkbox5">Zoster (Shingles)</label>
+					<input name="checkbox6" id="mm" type="checkbox"><label for="checkbox6">Measles, mumps, rubella (MMR)</label>
+					<input name="checkbox7" id="pn" type="checkbox"><label for="checkbox7">Pneumococcal (pneumonia)</label>
+					<input name="checkbox8" id="me" type="checkbox"><label for="checkbox8">Meningococcal</label>
+					<input name="checkbox9" id="hA" type="checkbox"><label for="checkbox9">Hepatitis A</label>
+					<input name="checkbox10" id="hB" type="checkbox"><label for="checkbox10">Hepatitis B</label>
+				</fieldset>
+			</div>
+		</div><!-- /content -->
+
+		<div data-theme="a" data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+	                <li><a href="#qr" data-theme="" data-icon="">Scan QR</a></li>
+	                <li><a href="#record" data-theme="" data-icon="">View Record</a></li>
+	                <li><a href="#store" data-theme="" data-icon="">Store & Print</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div><!-- /page -->
+	
+	<div data-role="page" id="allergies">
+	
+		<div data-role="header" data-theme="b">
+	        <h1>Allergies</h1>
+			<a data-role="button" data-rel="back" data-transition="fade" data-theme="d" href="">Back</a>
+		</div><!-- /header -->
+		
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="vertical">
+					<input name="checkbox1" id="po" type="checkbox"><label for="checkbox1">Pollen</label>
+					<input name="checkbox2" id="da" type="checkbox"><label for="checkbox2">Dairy</label>
+					<input name="checkbox3" id="eg" type="checkbox"><label for="checkbox3">Eggs</label>
+					<input name="checkbox4" id="fi" type="checkbox"><label for="checkbox4">Fish</label>
+					<input name="checkbox5" id="pe" type="checkbox"><label for="checkbox5">Peanuts</label>
+					<input name="checkbox6" id="tn" type="checkbox"><label for="checkbox6">Tree Nuts</label>
+					<input name="checkbox7" id="sf" type="checkbox"><label for="checkbox7">Shellfish/Seafood</label>
+					<input name="checkbox8" id="sy" type="checkbox"><label for="checkbox8">Soy</label>
+					<input name="checkbox9" id="wh" type="checkbox"><label for="checkbox9">Wheat</label>
+					<input name="checkbox10" id="pc" type="checkbox"><label for="checkbox10">Gluten</label>
+				</fieldset>
+			</div>
+		</div><!-- /content -->
+
+		<div data-theme="a" data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+	                <li><a href="#qr" data-theme="" data-icon="">Scan QR</a></li>
+	                <li><a href="#record" data-theme="" data-icon="">View Record</a></li>
+	                <li><a href="#store" data-theme="" data-icon="">Store & Print</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div><!-- /page -->
+	
+	<div data-role="page" id="conditions">
+	
+		<div data-role="header" data-theme="b">
+	        <h1>Conditions</h1>
+			<a data-role="button" data-rel="back" data-transition="fade" data-theme="d" href="">Back</a>
+		</div><!-- /header -->
+		
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="vertical">
+					<input name="checkbox1" id="bc" type="checkbox"><label for="checkbox1">Breast Cancer</label>
+					<input name="checkbox2" id="cc" type="checkbox"><label for="checkbox2">Cervical Cancer</label>
+					<input name="checkbox3" id="co" type="checkbox"><label for="checkbox3">Coronary Artery Disease</label>
+					<input name="checkbox4" id="di" type="checkbox"><label for="checkbox4">Diabetes</label>
+					<input name="checkbox5" id="li" type="checkbox"><label for="checkbox5">Hyperlipidemia</label>
+					<input name="checkbox6" id="te" type="checkbox"><label for="checkbox6">Hypertension</label>
+					<input name="checkbox7" id="as" type="checkbox"><label for="checkbox7">Asthma</label>
+					<input name="checkbox8" id="mi" type="checkbox"><label for="checkbox8">Migraine Headache</label>
+					<input name="checkbox9" id="ar" type="checkbox"><label for="checkbox9">Arthritis</label>
+					<input name="checkbox10" id="si" type="checkbox"><label for="checkbox10">Acute Sinusitis (allergies)</label>
+				</fieldset>
+			</div>
+		</div><!-- /content -->
+
+		<div data-theme="a" data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+	                <li><a href="#qr" data-theme="" data-icon="">Scan QR</a></li>
+	                <li><a href="#record" data-theme="" data-icon="">View Record</a></li>
+	                <li><a href="#store" data-theme="" data-icon="">Store & Print</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div><!-- /page -->
+	
+	<div data-role="page" id="medications">
+	
+		<div data-role="header" data-theme="b">
+	        <h1>Medications</h1>
+			<a data-role="button" data-rel="back" data-transition="fade" data-theme="d" href="">Back</a>
+		</div><!-- /header -->
+		
+		<div data-role="content" style="padding: 15px">
+			<div data-role="fieldcontain">
+				<fieldset data-role="controlgroup" data-type="vertical">
+					<input name="checkbox1" id="hy" type="checkbox"><label for="checkbox1">Hydrocodone/Acetaminophen (e.g. Vicodin)</label>
+					<input name="checkbox2" id="st" type="checkbox"><label for="checkbox2">Statins (e.g. Simvastatin [Zocor] or Atorvastatin [Lipitor])</label>
+					<input name="checkbox3" id="ze" type="checkbox"><label for="checkbox3">Lisinopril (Zestril) or Amlodipine Besylate (Norvasc)</label>
+					<input name="checkbox4" id="ls" type="checkbox"><label for="checkbox4">Levothyroxine Sodium (Synthroid)</label>
+					<input name="checkbox5" id="om" type="checkbox"><label for="checkbox5">Omeprazole (Prilosec)</label>
+					<input name="checkbox6" id="an" type="checkbox"><label for="checkbox6">Antiboitics (e.g. Azithromycin [Zithromax] or Amoxicillin)</label>
+					<input name="checkbox7" id="gl" type="checkbox"><label for="checkbox7">Metformin HCL (Glucophage)</label>
+					<input name="checkbox8" id="al" type="checkbox"><label for="checkbox8">Alprazolam (Xanax)</label>
+					<input name="checkbox9" id="am" type="checkbox"><label for="checkbox9">Zolpidem tartrate (Ambien)</label>
+					<input name="checkbox10" id="zo" type="checkbox"><label for="checkbox10">Sertraline HCL (Zoloft)</label>
+				</fieldset>
+			</div>
+		</div><!-- /content -->
+
+		<div data-theme="a" data-role="footer" data-position="fixed">
+			<div data-role="navbar" data-iconpos="bottom">
+				<ul>
+	                <li><a href="#qr" data-theme="" data-icon="">Scan QR</a></li>
+	                <li><a href="#record" data-theme="" data-icon="">View Record</a></li>
+	                <li><a href="#store" data-theme="" data-icon="">Store & Print</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+	<div id="patient-health-record">Text</div>
+	<div id="qrCodeString">Text</div>
+	<div id="qrCodeImage"></div>
+	<!-- /page -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script src="html5-qrcode.js" type="text/javascript" charset="utf-8"></script>
+	<script src="qrcode.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		//Wait
+		$('document').ready(setThingsUp);
+		
+		//Setup
+		function setThingsUp() {
+			console.log('jQuery running');
+			
+			$('#scanQR').click(readJSONData);
+			
+			$('#printQR').click(textFromDivToImageDiv);
+			
+		}
+		
+		//Play
+		
+		function getMyPid() {
+			var myPid = $('h2#patient').attr('data-pid');
+		}
+		
+		function setMyPid() {
+			$('h2#patient').attr('data-pid','2222222');
+		}
+		
+		function submitMyRecord(myPid, myBday, myBtype, myTetanus, myHepA, myHepB, myHepC, myTb, myPolio, myVac7, myVac8, myAllergens, myIcds, myMeds) {
+			var stringToEncode = myPid + myBday + myBtype + myTetanus + myHepA +
+myHepB + myHepC + myTb + myPolio + myVac7 + myVac8 + myAllergens +
+myIcds + myMeds;
+
+		}
+		
+		function DOESNTWORKreadJSONData() {
+			$.ajaxSetup({ cache:false });
+			$.getJSON('checklist.json', function(data) {
+			  var items = [];
+			console.log(items);
+
+			  $.each(data, function(key, val) { items.push('<li id="' + key + '">' + val + '</li>');});
+			  $.each(data, function(key, val) { $('h2'+key).html(val);});
+			  $('<ul/>', {
+			    'class': 'my-new-list',
+			    html: items.join('')
+			  }).appendTo('#qr #content');
+			});
+			$.ajaxSetup({ cache:true });
+		}
+		
+		function readJSONData() {
+			$.ajaxSetup({ cache:false });
+			$.getJSON('checklist.json', function(data) {
+			  var items = [];
+			console.log(items);
+
+			  $.each(data, function(key, val) { items.push('<li id="' + key + '">' + val + '</li>');});
+
+			  $('<ul/>', {
+			    'class': 'my-new-list',
+			    html: items.join('')
+			  }).appendTo('#qr #content');
+			});
+			$.ajaxSetup({ cache:true });
+		}
+		
+		
+	  function textFromDivToImageDiv() {
+		
+		var NEWqrCodeString = "userName": "John Doe",
+		  "bday": "1973-08-01",
+		  "blood": "O+",
+		  "city": "Los Angeles",
+		
+		var qrCodeString = $('#qrCodeString').html();
+		console.log(qrCodeString)		
+		$('#store #content').append(showQRCode(qrCodeString));
+      }
+
+	</script>
+
+</body>
+</html>
