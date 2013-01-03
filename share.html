@@ -36,6 +36,8 @@
 	<script src="js/mobileinit.js"></script>
 	<script src="js/ios-orientationchange-fix.min.js"></script>
 	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	<script src="js/qrcode.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/html5-qrcode.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/application.js"></script>
 	<!-- Startup Images for iDevices -->
 	<script>(function(){var a;if(navigator.platform==="iPad"){a=window.orientation!==90||window.orientation===-90?"images/startup-tablet-landscape.png":"images/startup-tablet-portrait.png"}else{a=window.devicePixelRatio===2?"images/startup-retina.png":"images/startup.png"}document.write('<link rel="apple-touch-startup-image" href="'+a+'"/>')})()</script>
@@ -52,7 +54,6 @@
 
 		<div data-role="content">	
 			<h2>Share</h2>
-			<p>Page content goes here.</p>		
 			<p><button onclick="shareRecord();" type="button">Click me!</button></p>
 			<div id="result">Result</div>
 		</div><!-- /content -->

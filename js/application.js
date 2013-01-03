@@ -17,6 +17,10 @@ $(document).on("pageinit", function(event){
 
 });
 
+
+// ----------------------------------------------------------------------
+/* clickCounter */
+// ----------------------------------------------------------------------
 function clickCounter() {
 	
 	sessionStorage.healthRecordJSONtext = JSON.stringify(healthRecord);
@@ -41,6 +45,9 @@ function clickCounter() {
 	
 }
 
+// ----------------------------------------------------------------------
+/* healthRecord variable */
+// ----------------------------------------------------------------------
 var healthRecord = {
  "userNumber": 11111111,
  "userName": "John Doe",
@@ -62,13 +69,25 @@ var healthRecord = {
  "meds": "aaa"
 }
 
+
+// ----------------------------------------------------------------------
+/* shareRecord() */
+// ----------------------------------------------------------------------
 function shareRecord() {
 	
 	if(typeof(Storage)!=="undefined")
 	{
 		if (sessionStorage.healthRecordJSONtext)
 		{
-			document.getElementById("result").innerHTML=sessionStorage.healthRecordJSONtext;
+			if (qrToShow)
+			{
+				// Do nothing
+			}
+			else
+			{
+				var qrToShow = sessionStorage.healthRecordJSONtext;
+				$('#result').append(showQRCode(qrToShow));
+			}
 		}
 		else
 		{
