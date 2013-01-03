@@ -14,31 +14,33 @@
 */
 
 // Initialize application
-$(document).on("pageinit", function(event) {
+$(document).on("pageinit", function (event) {
+  'use strict';
   // custom code goes here
   // Disable inputs until user chooses to edit page
   //$("input,textarea,select,button").prop('disabled', true);
 });
 
 // Initialize #share feature page
-$(document).delegate("#share", "pageinit", function() {
+$(document).delegate("#share", "pageinit", function () {
+  'use strict';
   //alert('A page with an id of "share" was just created by jQuery Mobile!');
   //shareRecord();
 });
 
 
 function setUpThisPage() {
+  'use strict';
   //Find the last slash character, return the string following the slash
   var thisFile = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
 
-  if (thisFile === 'share.html') {
-    shareRecord();
-  }
+  if (thisFile === 'share.html') { shareRecord(); }
 }
 
 // Get page
 
 function whatIsThisFile() {
+  'use strict';
   //Find the last slash character, return the string following the slash
   var filename = window.location.href.substr(window.location.href.lastIndexOf("/") + 1);
   return filename;
@@ -49,7 +51,7 @@ function whatIsThisFile() {
 // ----------------------------------------------------------------------
 
 function clickCounter() {
-
+  'use strict';
   sessionStorage.healthRecordJSONtext = JSON.stringify(healthRecord);
 
   if (typeof(Storage) !== "undefined") {
@@ -91,7 +93,7 @@ var healthRecord = {
   "allergens": "aaaaaaaa",
   "conditions": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
   "meds": "aaa"
-}
+};
 
 // A QR code can hold 520 bytes (ascii characters)
 var loremIpsumDummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida, dolor a tincidunt commodo, nibh neque fringilla erat, in mollis lorem est scelerisque augue. Fusce pretium elementum nibh, sit amet bibendum lacus egestas a. Donec nisl metus, auctor placerat dapibus dapibus, sodales vitae purus. Nullam vehicula, sem in fermentum lacinia, justo justo dapibus ipsum, nec blandit quam erat non est. Duis facilisis urna diam, quis adipiscing nulla. Pellentesque ligula turpis, sodales at malesuada non, adipiscings.";
@@ -102,12 +104,10 @@ var loremIpsumDummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing el
 // ----------------------------------------------------------------------
 
 function shareRecord() {
-
+  'use strict';
   if (typeof(Storage) !== "undefined") {
     if (sessionStorage.healthRecordJSONtext) {
-      if (qrToShow) {
-        // Do nothing
-      } else {
+      if (!qrToShow) {
         var qrToShow = sessionStorage.healthRecordJSONtext;
         // var qrToShow = loremIpsumDummyText;
         $('#result').append(showQRCode(qrToShow));
@@ -116,5 +116,4 @@ function shareRecord() {
       document.getElementById("result").innerHTML = "Sorry, no record is available";
     }
   }
-
 }
