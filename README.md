@@ -25,6 +25,7 @@ You are invited to contribute code and suggestions to this project. The more the
 - [jsqrcode](https://github.com/LazarSoft/jsqrcode)
 - [QR Code Generator](https://github.com/amanuel/JS-HTML5-QRCode-Generator)
 - [jQuery Mobile Boilerplate](https://github.com/commadelimited/jQuery-Mobile-Boilerplate): Public domain
+- [iOS Orientation Change Fix](https://github.com/scottjehl/iOS-Orientationchange-Fix): MIT / GPLv2
 
 ### Custom bits:
 
