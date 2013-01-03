@@ -3,15 +3,29 @@ globalPHR
 
 A basic personal health record for humans
 
-## To do list
-1. Fix jQuery Mobile UI
-2. Scan QR code and read data (Nesim)
-3. Store scanned data as local objects and update them (Michael)
-4. Post updated data to usergrid (Ananth)
-5. Print new QR code with updated data (Nesim)
+## Features
 
-## Dependencies
-- [jQuery](http://code.jquery.com/jquery-1.7.1.min.js)
-- [jQuery Mobile](http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js)
+* Will go here
+
+## Contributing
+
+You are invited to contribute code and suggestions to this project. The more the merrier.
+
+## Project Info
+
+* Source: https://github.com/mchogan/globalPHR
+* Twitter: [http://twitter.com/_mchogan](http://twitter.com/_mchogan)
+
+## License
+
+### 3rd party libraries:
+
+- [jQuery 1.8.2](http://jquery.com): MIT/GPL license
+- [jQuery Mobile 1.2.0](http://jquerymobile.com): MIT/GPL license
 - [jsqrcode](https://github.com/LazarSoft/jsqrcode)
 - [QR Code Generator](https://github.com/amanuel/JS-HTML5-QRCode-Generator)
+- [jQuery Mobile Boilerplate](https://github.com/commadelimited/jQuery-Mobile-Boilerplate): Public domain
+
+### Custom bits:
+
+TBD, but for now copyright 2012-2013 Michael C. Hogan
