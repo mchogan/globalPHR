@@ -15,7 +15,8 @@
 $(document).on("pageinit", function(event){
 	// custom code goes here
 	
-	$("input,textarea,select,button").prop('disabled', true);
+	// Disable inputs until user chooses to edit page
+	//$("input,textarea,select,button").prop('disabled', true);
 
 });
 
