@@ -44,18 +44,16 @@
 	<!-- The script prevents links from opening in mobile safari. https://gist.github.com/1042026 -->
 	<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
 </head>
-<body> 
+<body onload="shareRecord();"> 
 
 <div data-role="page">
 
 		<div data-role="header" data-position="fixed">
-			<h1>Personal Health Record</h1>
+			<h1>Global P.H.R.</h1>
 		</div><!-- /header -->
 
 		<div data-role="content">	
-			<h2>Share</h2>
-			<p><button onclick="shareRecord();" type="button">Click me!</button></p>
-			<div id="result">Result</div>
+			<div id="result"><!-- result will go here --></div>
 		</div><!-- /content -->
 
 		<div data-role="footer" data-position="fixed">		
