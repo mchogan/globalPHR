@@ -46,7 +46,10 @@ function clickCounter() {
 }
 
 // ----------------------------------------------------------------------
-/* healthRecord variable */
+/* healthRecord data type */
+//
+// limited to a maximum of 520 bytes (characters)
+//
 // ----------------------------------------------------------------------
 var healthRecord = {
  "userNumber": 11111111,
@@ -86,6 +89,8 @@ function shareRecord() {
 			else
 			{
 				var qrToShow = sessionStorage.healthRecordJSONtext;
+				// 520 bytes (characters) of Lorem Ipsum
+				// var qrToShow = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida, dolor a tincidunt commodo, nibh neque fringilla erat, in mollis lorem est scelerisque augue. Fusce pretium elementum nibh, sit amet bibendum lacus egestas a. Donec nisl metus, auctor placerat dapibus dapibus, sodales vitae purus. Nullam vehicula, sem in fermentum lacinia, justo justo dapibus ipsum, nec blandit quam erat non est. Duis facilisis urna diam, quis adipiscing nulla. Pellentesque ligula turpis, sodales at malesuada non, adipiscings.";
 				$('#result').append(showQRCode(qrToShow));
 			}
 		}
