@@ -44,24 +44,24 @@
 	<!-- The script prevents links from opening in mobile safari. https://gist.github.com/1042026 -->
 	<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
 </head>
-<body onload="shareRecord();"> 
+<body> 
 
-<div data-role="page">
+<div data-role="page" id="share">
 
 	<div data-role="header" data-id="header" data-position="fixed">
 			<h1>Global P.H.R.</h1>
 		</div><!-- /header -->
 
 		<div data-role="content">	
-			<div id="result"><!-- result will go here --></div>
+			<div id="result"><button onclick="shareRecord();" type="button">Share me!</button><!-- result will go here --></div>
 		</div><!-- /content -->
 
 		<div data-role="footer" data-id="footer" data-position="fixed">		
 			<div data-role="navbar">
 				<ul>
-					<li><a href="index.html">View</a></li>
-					<li><a href="scan.html">Scan</a></li>
-					<li><a href="share.html" class="ui-btn-active ui-state-persist">Share</a></li>
+					<li><a id="viewBtn" href="index.html">View</a></li>
+					<li><a id="scanBtn" href="scan.html">Scan</a></li>
+					<li><a id="shareBtn" href="share.html" class="ui-btn-active ui-state-persist">Share</a></li>
 				</ul>
 			</div><!-- /navbar -->
 			<h4>&copy; 2012-2013 Michael C. Hogan</h4>

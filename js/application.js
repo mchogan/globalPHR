@@ -12,14 +12,38 @@
 	// http://www.denso-wave.com/qrcode/faqpatent-e.html
 	
 */
+
+// Initialize application
 $(document).on("pageinit", function(event){
 	// custom code goes here
 	
 	// Disable inputs until user chooses to edit page
 	//$("input,textarea,select,button").prop('disabled', true);
-
+		
 });
 
+// Initialize #share feature page
+$( document ).delegate("#share", "pageinit", function() {
+	//alert('A page with an id of "share" was just created by jQuery Mobile!');
+	//shareRecord();
+});
+
+
+function setUpThisPage(){
+	//Find the last slash character, return the string following the slash
+	var thisFile = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+	
+	if (thisFile === 'share.html'){
+		shareRecord();
+	}
+}
+
+// Get page
+function whatIsThisFile(){	
+	//Find the last slash character, return the string following the slash
+	var filename = window.location.href.substr(window.location.href.lastIndexOf("/")+1);
+	return filename;
+}
 
 // ----------------------------------------------------------------------
 /* clickCounter */
@@ -75,6 +99,9 @@ var healthRecord = {
  "meds": "aaa"
 }
 
+// A QR code can hold 520 bytes (ascii characters)
+var loremIpsumDummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida, dolor a tincidunt commodo, nibh neque fringilla erat, in mollis lorem est scelerisque augue. Fusce pretium elementum nibh, sit amet bibendum lacus egestas a. Donec nisl metus, auctor placerat dapibus dapibus, sodales vitae purus. Nullam vehicula, sem in fermentum lacinia, justo justo dapibus ipsum, nec blandit quam erat non est. Duis facilisis urna diam, quis adipiscing nulla. Pellentesque ligula turpis, sodales at malesuada non, adipiscings.";
+
 
 // ----------------------------------------------------------------------
 /* shareRecord() */
@@ -92,8 +119,7 @@ function shareRecord() {
 			else
 			{
 				var qrToShow = sessionStorage.healthRecordJSONtext;
-				// 520 bytes (characters) of Lorem Ipsum
-				// var qrToShow = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida, dolor a tincidunt commodo, nibh neque fringilla erat, in mollis lorem est scelerisque augue. Fusce pretium elementum nibh, sit amet bibendum lacus egestas a. Donec nisl metus, auctor placerat dapibus dapibus, sodales vitae purus. Nullam vehicula, sem in fermentum lacinia, justo justo dapibus ipsum, nec blandit quam erat non est. Duis facilisis urna diam, quis adipiscing nulla. Pellentesque ligula turpis, sodales at malesuada non, adipiscings.";
+				// var qrToShow = loremIpsumDummyText;
 				$('#result').append(showQRCode(qrToShow));
 			}
 		}
