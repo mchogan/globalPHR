@@ -98,12 +98,10 @@ var healthRecord = {
 // A QR code can hold 520 bytes (ascii characters)
 var loremIpsumDummyText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida, dolor a tincidunt commodo, nibh neque fringilla erat, in mollis lorem est scelerisque augue. Fusce pretium elementum nibh, sit amet bibendum lacus egestas a. Donec nisl metus, auctor placerat dapibus dapibus, sodales vitae purus. Nullam vehicula, sem in fermentum lacinia, justo justo dapibus ipsum, nec blandit quam erat non est. Duis facilisis urna diam, quis adipiscing nulla. Pellentesque ligula turpis, sodales at malesuada non, adipiscings.";
 
-
-// ----------------------------------------------------------------------
-/* shareRecord() */
-// ----------------------------------------------------------------------
-
-function shareRecord() {
+// This function declaration is more
+// debugger-friendly, as the name of the function
+// will be printed in the debugger.
+var shareRecord = function shareRecord() {
   'use strict';
   if (typeof(Storage) !== "undefined") {
     if (sessionStorage.healthRecordJSONtext) {
@@ -116,4 +114,4 @@ function shareRecord() {
       document.getElementById("result").innerHTML = "Sorry, no record is available";
     }
   }
-}
+};
