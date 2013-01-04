@@ -1,20 +1,20 @@
 {
- "userName": 11111111,
- "name": "John Doe",
- "bDay": 11111,
- "bType": "A",
- "occupation": "Programmer",
- "vaccines":{
-  "tetanus": "11111",
-  "hepA": "11111",
-  "hepB": "11111",
-  "hepC": 11111,
-  "tb": 11111,
-  "polio": 11111,
-  "vacA": 11111,
-  "vacB": 11111
-},
- "allergens": "aaaaaaaa",
- "conditions": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
- "meds": "aaa"
+  "userName": 11111111,
+  "name": "John Doe",
+  "bDay": 11111,
+  "bType": "A",
+  "occupation": "Programmer",
+  "vaccines": {
+    "tetanus": "11111",
+    "hepA": "11111",
+    "hepB": "11111",
+    "hepC": 11111,
+    "tb": 11111,
+    "polio": 11111,
+    "vacA": 11111,
+    "vacB": 11111
+  },
+  "allergens": "aaaaaaaa",
+  "conditions": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "meds": "aaa"
 }
