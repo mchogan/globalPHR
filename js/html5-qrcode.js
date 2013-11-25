@@ -54,6 +54,8 @@ function showQRCode(text) {
 
   var imgElement = document.createElement("img");
   imgElement.src = canvas.toDataURL("image/png");
+  // added by hogan
+  imgElement.id  = "qrImage";
 
   return imgElement;
 
