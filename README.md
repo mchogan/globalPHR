@@ -5,6 +5,8 @@ A basic personal health record for humans
 
 GlobalPHR is a medical data exchange format that quickly and reliably allows care providers to access patient information. Unlike competing solutions that are either tethered to the web, very low capacity, or unaffordable, GlobalPHR stores a broad set of essential data in an easy to use, portable, and affordable offline format.
 
+Try it at http://www.globalphr.com
+
 ## Features
 
 * QR as data format for exchange (e.g. fax machine, email, copier)
@@ -21,7 +23,7 @@ You are invited to contribute code and suggestions to this project. The more the
 ## Project Info
 
 * Source: https://github.com/mchogan/globalPHR
-* Twitter: [http://twitter.com/_mchogan](http://twitter.com/_mchogan)
+* Twitter: [http://twitter.com/@mch82](http://twitter.com/@mch82)
 
 ## License
 
